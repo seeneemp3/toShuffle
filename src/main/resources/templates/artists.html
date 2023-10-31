@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск артиста</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+
+
+
+<div class="container">
+    <input type="text" name="searchInput1" id="search-input1" placeholder="Artist name...">
+    <div id="search-results1" class="search-results"></div>
+
+    <input type="text" name="searchInput2" id="search-input2" placeholder="Artist name...">
+    <div id="search-results2" class="search-results"></div>
+
+    <input type="text" name="searchInput3" id="search-input3" placeholder="Artist name...">
+    <div id="search-results3" class="search-results"></div>
+</div>
+
+<style>
+    #hiddenForm {
+        position: relative;
+    }
+
+    #hiddenForm input[type="submit"] {
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 188px;
+        height: 50px;
+        flex-shrink: 0;
+        border-radius: 44px;
+        background: #26D769;
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #hiddenForm input[type="submit"]:hover {
+        background: #22c060;
+    }
+
+    #hiddenForm input[type="submit"]:active {
+        background: #1da855;
+    }
+
+</style>
+
+<form id="hiddenForm" action="/processSearch" method="get">
+    <input type="text" id="hiddenInput1" name="searchInput1" style="display: none;">
+    <input type="text" id="hiddenInput2" name="searchInput2" style="display: none;">
+    <input type="text" id="hiddenInput3" name="searchInput3" style="display: none;">
+    <input type="submit" value="Next">
+</form>
+
+
+
+
+
+
+<script src="search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
