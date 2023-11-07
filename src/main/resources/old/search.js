@@ -18,11 +18,18 @@ $(document).ready(function() {
 
 
     function setupInput(inputSelector, resultsSelector, hiddenInputSelector) {
-        $(inputSelector).on('keyup', function(event) {
-            if (event.keyCode === 13) {
-                search(inputSelector, resultsSelector);
-            }
-        });
+        var timeout = null;
+
+            $(inputSelector).on('keyup', function() {
+                clearTimeout(timeout);
+
+                var inputValue = $(this).val();
+                if (inputValue.length > 2) {
+                    timeout = setTimeout(function() {
+                        search(inputSelector, resultsSelector);
+                    }, 100);
+                }
+            });
 
         $(document).on('click', resultsSelector + ' .search-result-item', function() {
             var selectedItemText = $(this).text();
@@ -35,13 +42,6 @@ $(document).ready(function() {
     setupInput('#search-input1', '#search-results1', '#hiddenInput1');
     setupInput('#search-input2', '#search-results2', '#hiddenInput2');
     setupInput('#search-input3', '#search-results3', '#hiddenInput3');
-
-
-
-
-
-
-
 
 
 });

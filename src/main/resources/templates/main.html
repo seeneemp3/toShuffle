@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Музыкальное приложение</title>
+  <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <div id="welcomePage">
+        <p>Добро пожаловать на сайт!</p>
+        <button onclick="toSearch()">Начать</button>
+    </div>
+
+    <div id="searchPage">
+        <p>Давай найдем артистов</p>
+        <form id="sendInputs" action="/showPlaylist" method="get">
+            <input type="text" name="searchInput1" id="search-input1" placeholder="Artist name...">
+            <div id="search-results1" class="search-results"></div>
+    
+            <input type="text" name="searchInput2" id="search-input2" placeholder="Artist name...">
+            <div id="search-results2" class="search-results"></div>
+    
+            <input type="text" name="searchInput3" id="search-input3" placeholder="Artist name...">
+            <div id="search-results3" class="search-results"></div>
+            <button type="button" id="submit-button">Далее</button>
+        </form>
+    </div>
+
+    <div id="showPlaylistPage">
+        <p>Плейлист готов</p>
+        <button onclick="toFinish()">Создать</button>
+    </div>
+
+    <div id="finishPage">
+        <p>Начнем сначала?</p>
+        <button onclick="toWelcome()">В начало</button>
+    </div>
+
+
+    
+  <script src="script.js"></script>
+  </div>
+</body>
+</html>

@@ -39,6 +39,5 @@ public class SpotifySecurityContextImpl implements SpotifySecurityContext {
         }
         throw new RuntimeException("OAuth2AuthorizedClient not found");
     }
-
 }
 

@@ -22,7 +22,22 @@ import java.util.List;
 public class MyPlaylistService {
     private final SpotifySecurityContext securityContext;
     private final MyUserService userService;
-    public MyPlaylist createMyPlaylist(String artist1, String artist2, String artist3) throws IOException, ParseException, SpotifyWebApiException {
+
+    public List<Track> showMyPlaylist(String artist1, String artist2, String artist3) throws IOException, ParseException, SpotifyWebApiException {
+        SpotifyApi api = securityContext.getSpotifyApi();
+        String playlistName = String.format("Top 5 from %s, %s and %s", artist1, artist2, artist3);
+
+        List <String> artistIds = List.of(search(artist1), search(artist2), search(artist3));
+
+        List<Track> tracksList = new ArrayList<>();
+
+        for(String artistId : artistIds){
+            final Track[] tracks = api.getArtistsTopTracks(artistId, CountryCode.US).build().execute();
+            Arrays.stream(tracks).limit(5).forEach(tracksList::add);
+        }
+        return tracksList;
+    }
+    public Playlist createMyPlaylist(String artist1, String artist2, String artist3) throws IOException, ParseException, SpotifyWebApiException {
         SpotifyApi api = securityContext.getSpotifyApi();
         String userId = userService.getUser().getUserId();
         String playlistName = String.format("Top 5 from %s, %s and %s", artist1, artist2, artist3);
@@ -41,7 +56,7 @@ public class MyPlaylistService {
         String [] trackUrlsArr = trackUrls.toArray(new String[15]);
         api.addItemsToPlaylist(playlist.getId(), trackUrlsArr).build().execute();
 
-       return new MyPlaylist(playlist.getId(), playlist.getName(), playlist.getOwner().getId());
+       return playlist;
     }
     private String search(String artist) throws IOException, ParseException, SpotifyWebApiException {
         SearchArtistsRequest searchArtistsRequest = securityContext.getSpotifyApi().searchArtists(artist).limit(1).build();
