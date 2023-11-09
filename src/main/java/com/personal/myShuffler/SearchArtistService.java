@@ -26,7 +26,6 @@ public class SearchArtistService {
             final Paging<Artist> artistPaging = pagingFuture.join();
 
             searchResults = Arrays.stream(artistPaging.getItems()).map(Artist::getName).toList();
-//            System.out.println("Total: " + artistPaging.getTotal());
         } catch (CancellationException e) {
             System.out.println("Async operation cancelled.");
         }

@@ -3,11 +3,7 @@ function toSearch() {
     document.getElementById("searchPage").style.display = "block";
     document.getElementById("showPlaylistPage").style.display = "none";
   }
-
-//function toShow() {
-//    document.getElementById("searchPage").style.display = "none";
-//    document.getElementById("showPlaylistPage").style.display = "block";
-//}
+// вынести название плейлиста и кнопки назад сделать
 
   function toFinish() {
     document.getElementById("showPlaylistPage").style.display = "none";
