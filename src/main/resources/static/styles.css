@@ -8,135 +8,309 @@
   #app {
     text-align: center;
   }
-  #welcomePage {
-    text-align: center;
-  }
-  #searchPage {
-    text-align: center;
-    display: none;
-  }
+
   #showPlaylistPage {
-    text-align: center;
-    display: none;
+    display: none; /* Изначально скрыт */
+  justify-content: center; /* Горизонтальное выравнивание по центру */
+  align-items: center; /* Вертикальное выравнивание по центру */
+  flex-direction: column;
+  height: 100vh; /* Высота контейнера равна высоте вьюпорта */
+  width: 100vw; /* Ширина контейнера равна ширине вьюпорта */
+  position: fixed; /* Фиксируем контейнер на весь экран */
+  top: 0;
+  left: 0;
   }
+  
   #finishPage {
     text-align: center;
     display: none;
   }
+
+  /*
+  Welcome page
+  */
+  #welcomePage {
+    text-align: center;
+  }
+
+  .head1 {
+    display: grid;
+    place-items: center;
+  }
+  
+  .logo{
+    background-image: url(image.png);
+    background-position: center center;
+    margin-top: 8%;
+  }
+
+  .bg1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 419px;
+    height: 391px;
+    flex-shrink: 0;
+    border-radius: 68px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.00) 88.23%);    
+  }
+  
+  .description{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 391px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-style: italics;
+    color: white;
+    font-weight: 200;
+    line-height: 1.6;
+    text-align: none;
+  }
+      
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .foot1{
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    text-align: center; 
+    padding: 10px 0; 
+    height: 210px;
+  }
+  
+  .button {
+    background-color: rgba(38, 215, 105, 1); 
+    border: none;
+    color: white;
+    padding: 10px 68px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+
+    
+    font-size: 26px;
+    font-style: bold;
+    font-weight: 600;
+    line-height: normal;
+
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; 
+  }
+  
+  .button:hover {
+    background-color: rgb(13, 125, 56); 
+  }
+
+
+  /* 
+  Search Page
+  */
+  #searchPage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none; 
+  }
+
+  .bg2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 419px;
+    height: 391px;
+    flex-shrink: 0;
+    border-radius: 68px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.00) 88.23%);    
+  }
+ 
+  .cont1 {
+    margin-top: 30px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   input[type="text"] {
-      border-radius: 25px;
-      border: none;
-      outline: none;
-      padding: 10px 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    display: block; 
+    margin: 0 auto;
   }
-
-
+  
   input[type="text"]:hover {
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   }
+  
 
-
-  #search-results1 {
-      display: none;
-      margin-top: none;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      background-color: #fff;
-      max-width: 310px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* 
+  Result container
+  */
+  .results {
+    min-height: 100px; 
+    margin: 50px 0;
+    margin-left:  auto;
+    margin-right: auto;
+    width: 184px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
-
-  #search-results1 ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+  
+  
+  /* 
+  Search button
+  */
+  #submit-button{
+    margin-top: auto; 
+    background-color: rgba(38, 215, 105, 1); 
+    border: none;
+    color: white;
+    padding: 10px 68px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    font-size: 26px;
+    font-style: bold;
+    font-weight: 600;
+    line-height: normal;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; 
   }
-
-  #search-results1 li {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-      cursor: pointer;
+  #submit-button:hover {
+    background-color: rgb(13, 125, 56); 
   }
-
-  #search-results1 li:last-child {
-      border-bottom: none;
+  
+  /* 
+  List results 
+  */
+  #search-results1, #search-results2, #search-results3 {
+    display: none;
+    background-color: transparent;
+    color: #fff; 
+    font-family: Arial, sans-serif;  
   }
-
-  #search-results1 li:hover {
-      background-color: #f7f7f7;
+  #search-results1 ul, #search-results2 ul, #search-results3 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-
-  #search-results2 {
-      display: none;
-      margin-top: none;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      background-color: #fff;
-      max-width: 310px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  #search-results1 li, #search-results2 li, #search-results3 li {
+    width: auto;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 0; 
+    transition: background-color 0.3s, border-radius 0.3s;
   }
-
-  #search-results2 ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+  #search-results1 li:last-child, #search-results2 li:last-child, #search-results3 li:last-child {
+    border-bottom: none;
   }
-
-  #search-results2 li {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-      cursor: pointer;
-  }
-
-  #search-results2 li:last-child {
-      border-bottom: none;
-  }
-
-  #search-results2 li:hover {
-      background-color: #f7f7f7;
-  }
-
-  #search-results3 {
-      display: none;
-      margin-top: none;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      background-color: #fff;
-      max-width: 310px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  #search-results3 ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-  }
-
-  #search-results3 li {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-      cursor: pointer;
-  }
-
-  #search-results3 li:last-child {
-      border-bottom: none;
-  }
-
-  #search-results3 li:hover {
-      background-color: #f7f7f7;
+  #search-results1 li:hover, #search-results2 li:hover, #search-results3 li:hover {
+    background-color: #505050;
+    border-radius: 10px;
   }
   #search-results1, #search-results2, #search-results3 {
-      width: calc(100% - 20px);
-      ...
+      width: 100%;
+      
   }
 
-  $(document).ready(function() {
-      $('#submitBtn').click(function() {
-          $('#searchForm').submit();
-      });
-  });
+
+
+/* Стили для контейнера списка */
+.scrollable-list {
+  width: 400px; /* Ширина списка */
+  height: 500px; /* Высота списка */
+  overflow-y: auto; /* Включаем прокрутку */
+  background: transparent; /* Прозрачный фон у списка */
+  color: #fff; /* Белый цвет текста */
+  box-sizing: border-box;
+}
+
+/* Скрываем фон полосы прокрутки */
+.scrollable-list::-webkit-scrollbar {
+  width: 10px; /* Ширина полосы прокрутки */
+}
+
+.scrollable-list::-webkit-scrollbar-track {
+  background: transparent; /* Прозрачный фон полосы прокрутки */
+}
+
+.scrollable-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Цвет ползунка прокрутки */
+  border-radius: 40px; /* Скругление ползунка прокрутки */
+}
+
+/* Стили для элементов списка */
+.track {
+  background: #222; /* Темный фон для элементов списка */
+  border-radius: 10px; /* Скругление углов элемента списка */
+  box-sizing: border-box; /* Учитываем padding и border в общей ширине и высоте */
+  padding: 6px 10px !important; /* Уменьшаем внутренние отступы, принудительно переопределяем стили */
+  margin: 4px 0 !important; /* Уменьшаем маржин, принудительно переопределяем стили */
+  height: 50px; /* Высота элемента определяется его содержимым */
+  max-height: 50px; 
+}
+.track-info {
+  text-align: left; /* Выравнивание текста по левому краю */
+  padding-left: 14px; 
+}
+
+/* Стили для названия трека */
+.track-name {
+  margin: 0; /* Убираем внешние отступы */
+  padding: 0px 0; /* Устанавливаем минимальные внутренние отступы для вертикального расстояния */
+  font-family: Arial, sans-serif; /* Установка шрифта Arial для названия трека */
+  font-weight: bold; /* Жирное начертание для названия трека */
+}
+
+/* Стили для имени артиста */
+.artist-name {
+  color: #d8d8d8;
+  font-size: 13px;
+  margin: 0; /* Убираем внешние отступы */
+  padding: 2px 0; /* Устанавливаем минимальные внутренние отступы для вертикального расстояния */
+  font-family: Arial, sans-serif; /* Установка шрифта Arial для имени артиста */
+  font-style: italic; /* Курсивное начертание для имени артиста */
+}
+.description2{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-style: italics;
+  color: white;
+  font-weight: 200;
+  line-height: 1.6;
+  text-align: none;
+}
+
+
+
+  
 
 
 

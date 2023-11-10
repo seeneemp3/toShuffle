@@ -10,27 +10,48 @@
   <div id="app">
 
     <div id="welcomePage">
-        <p>Добро пожаловать на сайт!</p>
-        <button onclick="toSearch()">Начать</button>
+      <div class="head1"> 
+        <div class="logo">
+          <img src="toShuffle.png" alt="image">
+        </div>
+      </div>
+      <div class="bg1">
+        <div class="description">
+          This app will create a playlist from the top
+           5 tracks of three chosen artists and save it to your Spotify account
+        </div>
+      </div>
+      <div class="foot1">
+        <button class="button" onclick="toSearch()">Start</button>
+      </div>
     </div>
 
     <div id="searchPage">
-        <p>Давай найдем артистов</p>
         <form id="sendInputs" action="/showPlaylist" method="get">
-            <input type="text" name="searchInput1" id="search-input1" placeholder="Artist name...">
-            <div id="search-results1" class="search-results"></div>
-    
-            <input type="text" name="searchInput2" id="search-input2" placeholder="Artist name...">
-            <div id="search-results2" class="search-results"></div>
-    
-            <input type="text" name="searchInput3" id="search-input3" placeholder="Artist name...">
-            <div id="search-results3" class="search-results"></div>
+          <div class="bg2">
+            <div class="cont1">
+              <input type="text" name="searchInput1" id="search-input1" placeholder="Artist name...">
+              <input type="text" name="searchInput2" id="search-input2" placeholder="Artist name...">
+              <input type="text" name="searchInput3" id="search-input3" placeholder="Artist name...">
+            </div>
+         
+            <div class="results">
+              <div id="search-results1" class="search-results"></div>
+              <div id="search-results2" class="search-results"></div>
+              <div id="search-results3" class="search-results"></div>
+            </div>
             <button type="button" id="submit-button">Далее</button>
+          </div>
+          
+      
+            
         </form>
     </div>
 
     <div id="showPlaylistPage">
-        <p>Плейлист готов</p>
+      <div class="description2">
+          Playlist is ready to be created
+        </div>
         <button onclick="toFinish()">Создать</button>
     </div>
 
