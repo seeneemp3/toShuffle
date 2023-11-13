@@ -9,18 +9,16 @@ function toSearch() {
   }
 
   function toWelcome() {
-    document.getElementById("finishPage").style.display = "none";
-    document.getElementById("welcomePage").style.display = "block";
+    location.reload();
   }
 
   $(document).ready(function() {
+   /*MOCK
     function search(input, resultsContainer) {
         const query = $(input).val();
       
-        // Mock data array with three items
         const mockData = ['Artist 1', 'Artist 2', 'Artist 3'];
       
-        // Generating the results HTML with three mocked items
         let resultsHtml = '<ul>';
       
         mockData.forEach(artist => {
@@ -29,11 +27,12 @@ function toSearch() {
       
         resultsHtml += '</ul>';
       
-        // Set the inner HTML of the results container
         $(resultsContainer).html(resultsHtml).show();
       }
+    */ 
+    
       
-/*
+
       function search(input, resultsContainer) {
           const query = $(input).val();
 
@@ -49,7 +48,7 @@ function toSearch() {
               $(resultsContainer).html(resultsHtml).show();
           });
       }
-      */
+    
 
       function setupInput(inputSelector, resultsSelector) {
           var timeout = null;
@@ -85,8 +84,8 @@ function toSearch() {
 
  
 
-
-  document.addEventListener('DOMContentLoaded', function() {
+/* MOCK
+document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('sendInputs');
     var submitButton = document.getElementById('submit-button');
 
@@ -95,33 +94,86 @@ function toSearch() {
         document.getElementById("showPlaylistPage").style.display = "flex";
         event.preventDefault();
 
-        // Используйте мок данные
         var data = getMockTracks();
         parseAndDisplayResults(data);
     });
 
     function getMockTracks() {
         return JSON.stringify([
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 2", artists: [{ name: "Артист 2" }] },
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 2", artists: [{ name: "Артист 2" }] },
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 2", artists: [{ name: "Артист 2" }] },
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 2", artists: [{ name: "Артист 2" }] },
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 2", artists: [{ name: "Артист 2" }] },
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 2", artists: [{ name: "Артист 2" }] },
-            { name: "Трек 1", artists: [{ name: "Артист 1" }] },
-            { name: "Трек 2", artists: [{ name: "Артист 2" }] }
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 2" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 2" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
+            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] }
 
         ]);
     }
 
     function parseAndDisplayResults(data) {
+      var tracks = JSON.parse(data);
+      var resultsHtml = '<div class="scrollable-list">';
+    
+      tracks.forEach(function(track) {
+        resultsHtml += '<div class="track">' +
+                       '<div class="track-info">' +
+                       '<p class="track-name">' + track.name + '</p>' +
+                       '<p class="artist-name">' + track.artists.map(artist => artist.name).join(', ') + '</p>' +
+                       '</div>' +
+                       '</div>';
+      });
+      resultsHtml += '</div>';
+    
+      var container = document.querySelector('.cont3');
+      
+      if (container) {
+        container.innerHTML = resultsHtml; 
+      } else {
+        console.error('The container with class "cont3" was not found.');
+      }
+    }  
+});
+//*/
+  
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('sendInputs');
+      var submitButton = document.getElementById('submit-button');
+
+      submitButton.addEventListener('click', function(event) {
+          document.getElementById("searchPage").style.display = "none";
+          document.getElementById("showPlaylistPage").style.display = "block";
+          event.preventDefault();
+
+          var queryParams = new URLSearchParams(new FormData(form)).toString();
+          var requestUrl = form.action + '?' + queryParams;
+
+          fetch(requestUrl).then(response => {
+              if(response.ok) {
+                  return response.text();
+              }
+              throw new Error('Сетевая ошибка при запросе');
+          }).then(data => {
+
+              console.log(data);
+
+              parseAndDisplayResults(data);
+          }).catch(error => {
+              console.error('Ошибка:', error);
+          });
+      });
+
+      function parseAndDisplayResults(data) {
         var tracks = JSON.parse(data);
         var resultsHtml = '<div class="scrollable-list">';
       
@@ -135,65 +187,14 @@ function toSearch() {
         });
         resultsHtml += '</div>';
 
-        var playlistPage = document.getElementById('showPlaylistPage');
-        var button = playlistPage.querySelector('button'); // Предполагаем, что кнопка - это элемент button
-        
-        // Вставка результатов перед кнопкой
-        if (button) {
-          button.insertAdjacentHTML('beforebegin', resultsHtml);
-        } else {
-          // Если кнопки нет, просто добавляем HTML в конец 'showPlaylistPage'
-          playlistPage.insertAdjacentHTML('beforeend', resultsHtml);
-        }
-
-        //document.getElementById('showPlaylistPage').insertAdjacentHTML('beforeend', resultsHtml);
-      }
+        var container = document.querySelector('.cont3');
       
+      if (container) {
+        container.innerHTML = resultsHtml; 
+      } else {
+        console.error('The container with class "cont3" was not found.');
+      }
+    }
 });
-
-
-//   document.addEventListener('DOMContentLoaded', function() {
-//       var form = document.getElementById('sendInputs');
-//       var submitButton = document.getElementById('submit-button');
-
-//       submitButton.addEventListener('click', function(event) {
-//           document.getElementById("searchPage").style.display = "none";
-//           document.getElementById("showPlaylistPage").style.display = "block";
-//           event.preventDefault();
-
-//           var queryParams = new URLSearchParams(new FormData(form)).toString();
-//           var requestUrl = form.action + '?' + queryParams;
-
-//           fetch(requestUrl).then(response => {
-//               if(response.ok) {
-//                   return response.text();
-//               }
-//               throw new Error('Сетевая ошибка при запросе');
-//           }).then(data => {
-
-//               console.log(data);
-
-//               parseAndDisplayResults(data);
-//           }).catch(error => {
-//               console.error('Ошибка:', error);
-//           });
-//       });
-
-//       function parseAndDisplayResults(data) {
-//           var tracks = JSON.parse(data);
-//           var resultsHtml = '<ul>';
-
-//           tracks.forEach(function(track) {
-//               resultsHtml += '<li>' +
-//                              '<strong>Трек:</strong> ' + track.name + '<br>' +
-//                              '<strong>Артист:</strong> ' + track.artists.map(artist => artist.name).join(', ') +
-//                              '</li>';
-//           });
-//           resultsHtml += '</ul>';
-//           document.getElementById('showPlaylistPage').insertAdjacentHTML('beforeend', resultsHtml);
-
-//       }
-
-//   });
 
 

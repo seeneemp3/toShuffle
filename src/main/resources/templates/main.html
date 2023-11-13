@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Музыкальное приложение</title>
+  <title>toShuffle</title>
   <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -40,7 +40,9 @@
               <div id="search-results2" class="search-results"></div>
               <div id="search-results3" class="search-results"></div>
             </div>
-            <button type="button" id="submit-button">Далее</button>
+            <div class="foot2">
+              <button type="button" id="submit-button">Далее</button>
+            </div>
           </div>
           
       
@@ -49,15 +51,31 @@
     </div>
 
     <div id="showPlaylistPage">
-      <div class="description2">
+      <div class="head3">
+        <div class="description2">
           Playlist is ready to be created
         </div>
-        <button onclick="toFinish()">Создать</button>
+      </div>
+
+      <div class="cont3">
+        
+      </div>
+
+      <div class="foot3">
+        <button class="button3" onclick="toFinish()">Create</button>
+      </div>
     </div>
 
     <div id="finishPage">
-        <p>Начнем сначала?</p>
-        <button onclick="toWelcome()">В начало</button>
+      <div class="bg4">
+        <div class="description4">
+          Your playlist is ready. It can be found by the name "Top 5 from ..."
+        </div>
+      </div>
+      <div class="foot4">
+        <button class="button4" onclick="toWelcome()">Create another</button>
+      </div>
+        
     </div>
 
 

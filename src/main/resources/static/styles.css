@@ -10,13 +10,13 @@
   }
 
   #showPlaylistPage {
-    display: none; /* Изначально скрыт */
-  justify-content: center; /* Горизонтальное выравнивание по центру */
-  align-items: center; /* Вертикальное выравнивание по центру */
+    display: none; 
+  justify-content: center; 
+  align-items: center; 
   flex-direction: column;
-  height: 100vh; /* Высота контейнера равна высоте вьюпорта */
-  width: 100vw; /* Ширина контейнера равна ширине вьюпорта */
-  position: fixed; /* Фиксируем контейнер на весь экран */
+  height: 100vh;
+  width: 100vw; 
+  position: fixed; 
   top: 0;
   left: 0;
   }
@@ -34,14 +34,19 @@
   }
 
   .head1 {
+    position: fixed;
+    width: 100%;
+    padding: 10px 0; 
+    height: 160px;
     display: grid;
     place-items: center;
   }
+
   
   .logo{
     background-image: url(image.png);
     background-position: center center;
-    margin-top: 8%;
+    margin-top: inherit;
   }
 
   .bg1{
@@ -175,6 +180,14 @@
     width: 184px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
+  .foot2{
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    text-align: center; 
+    padding: 10px 0; 
+    height: 0px;
+  }
   
   
   /* 
@@ -235,63 +248,65 @@
       
   }
 
+  .head3 {
+  display: grid;
+    display: grid;
+    place-items: center;
+  }
 
-
-/* Стили для контейнера списка */
 .scrollable-list {
-  width: 400px; /* Ширина списка */
-  height: 500px; /* Высота списка */
-  overflow-y: auto; /* Включаем прокрутку */
-  background: transparent; /* Прозрачный фон у списка */
-  color: #fff; /* Белый цвет текста */
+  width: 400px;
+  height: 500px; 
+  overflow-y: auto; 
+  background: transparent;
+  color: #fff; 
   box-sizing: border-box;
 }
 
-/* Скрываем фон полосы прокрутки */
 .scrollable-list::-webkit-scrollbar {
-  width: 10px; /* Ширина полосы прокрутки */
+  width: 10px; 
 }
 
 .scrollable-list::-webkit-scrollbar-track {
-  background: transparent; /* Прозрачный фон полосы прокрутки */
+  background: transparent; 
 }
 
 .scrollable-list::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.5); /* Цвет ползунка прокрутки */
-  border-radius: 40px; /* Скругление ползунка прокрутки */
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
 }
 
-/* Стили для элементов списка */
 .track {
-  background: #222; /* Темный фон для элементов списка */
-  border-radius: 10px; /* Скругление углов элемента списка */
-  box-sizing: border-box; /* Учитываем padding и border в общей ширине и высоте */
-  padding: 6px 10px !important; /* Уменьшаем внутренние отступы, принудительно переопределяем стили */
-  margin: 4px 0 !important; /* Уменьшаем маржин, принудительно переопределяем стили */
-  height: 50px; /* Высота элемента определяется его содержимым */
+  background: #222; 
+  border-radius: 10px; 
+  box-sizing: border-box; 
+  padding: 1px 16px !important; 
+  margin: 4px 0 !important; 
+  height: 50px;
   max-height: 50px; 
 }
 .track-info {
-  text-align: left; /* Выравнивание текста по левому краю */
-  padding-left: 14px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  padding-left: 0px;
 }
 
-/* Стили для названия трека */
 .track-name {
-  margin: 0; /* Убираем внешние отступы */
-  padding: 0px 0; /* Устанавливаем минимальные внутренние отступы для вертикального расстояния */
-  font-family: Arial, sans-serif; /* Установка шрифта Arial для названия трека */
-  font-weight: bold; /* Жирное начертание для названия трека */
+  margin: 0; 
+  padding: 5px 0; 
+  font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
-/* Стили для имени артиста */
 .artist-name {
   color: #d8d8d8;
   font-size: 13px;
-  margin: 0; /* Убираем внешние отступы */
-  padding: 2px 0; /* Устанавливаем минимальные внутренние отступы для вертикального расстояния */
-  font-family: Arial, sans-serif; /* Установка шрифта Arial для имени артиста */
-  font-style: italic; /* Курсивное начертание для имени артиста */
+  margin: 0;
+  padding: 0px 0;
+  font-family: Arial, sans-serif;
+  font-style: italic;
 }
 .description2{
   position: absolute;
@@ -307,6 +322,111 @@
   line-height: 1.6;
   text-align: none;
 }
+.cont3 {
+  place-items: center;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 60px;
+}
+.foot3{
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  text-align: center; 
+  padding: 10px 0; 
+  height: 160px;
+}
+/* 
+  Create button
+  */
+  .button3{
+    margin-top: auto; 
+    background-color: rgba(38, 215, 105, 1); 
+    border: none;
+    color: white;
+    padding: 10px 68px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    font-size: 26px;
+    font-style: bold;
+    font-weight: 600;
+    line-height: normal;
+    margin: 80px 2px;
+    cursor: pointer;
+    border-radius: 25px; 
+  }
+  .button3:hover {
+    background-color: rgb(13, 125, 56); 
+  }
+
+  /* 
+  Restart button
+  */
+  .bg4{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 419px;
+    height: 391px;
+    flex-shrink: 0;
+    border-radius: 68px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.00) 88.23%);    
+  }
+
+  .foot4{
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    text-align: center; 
+    padding: 10px 0; 
+    height: 210px;
+  }
+
+  .button4{
+    margin-top: auto; 
+    background-color: rgba(38, 215, 105, 1); 
+    border: none;
+    color: white;
+    padding: 10px 68px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    font-size: 26px;
+    font-style: bold;
+    font-weight: 600;
+    line-height: normal;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; 
+  }
+  .button4:hover {
+    background-color: rgb(13, 125, 56); 
+  }
+
+  .description4{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 391px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-style: italics;
+    color: white;
+    font-weight: 200;
+    line-height: 1.6;
+    text-align: none;
+  }
 
 
 
