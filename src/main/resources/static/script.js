@@ -34,7 +34,8 @@ function toFinish() {
   }
 
   $(document).ready(function() {
-   /*MOCK
+    
+   /* //MOCK
     function search(input, resultsContainer) {
         const query = $(input).val();
       
@@ -50,7 +51,7 @@ function toFinish() {
       
         $(resultsContainer).html(resultsHtml).show();
       }
-    */ 
+    */ //MOCK
     
       
 
@@ -97,6 +98,7 @@ function toFinish() {
             }
           });
       }
+    
 
       setupInput('#search-input1', '#search-results1');
       setupInput('#search-input2', '#search-results2');
@@ -105,12 +107,28 @@ function toFinish() {
 
  
 
-/* MOCK
+/* //MOCK
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('sendInputs');
     var submitButton = document.getElementById('submit-button');
 
+
+
     submitButton.addEventListener('click', function(event) {
+      var allInputsFilled = true;
+      $('input[type="text"]').each(function() {
+          if ($(this).val() === '') {
+              allInputsFilled = false;
+              return false; 
+          }
+      });
+  
+      if (!allInputsFilled) {
+        alert('Please fill in all the fields before continuing.'); 
+        event.preventDefault(); 
+        return; 
+    }
+
         document.getElementById("searchPage").style.display = "none";
         document.getElementById("showPlaylistPage").style.display = "flex";
         event.preventDefault();
@@ -163,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }  
 });
-//*/
+*///MOCK
   
 
 
@@ -172,8 +190,23 @@ document.addEventListener('DOMContentLoaded', function() {
       var submitButton = document.getElementById('submit-button');
 
       submitButton.addEventListener('click', function(event) {
+
+        var allInputsFilled = true;
+        $('input[type="text"]').each(function() {
+            if ($(this).val() === '') {
+                allInputsFilled = false;
+                return false; 
+            }
+        });
+    
+        if (!allInputsFilled) {
+          alert('Please fill in all the fields before continuing.'); 
+          event.preventDefault(); 
+          return; 
+      }
+
           document.getElementById("searchPage").style.display = "none";
-          document.getElementById("showPlaylistPage").style.display = "block";
+          document.getElementById("showPlaylistPage").style.display = "flex";
           event.preventDefault();
 
           var queryParams = new URLSearchParams(new FormData(form)).toString();
@@ -217,5 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 });
+
 
 

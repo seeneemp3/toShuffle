@@ -28,7 +28,7 @@ public class MyPlaylistService {
     public List<Track> showMyPlaylist(String artist1, String artist2, String artist3) throws IOException, ParseException, SpotifyWebApiException {
         SpotifyApi api = securityContext.getSpotifyApi();
 
-        playlistName = String.format("Top 5 from %s, %s and %s", artist1, artist2, artist3);
+        setPlaylistName(artist1, artist2, artist3);
 
         List <String> artistIds = List.of(search(artist1), search(artist2), search(artist3));
 
@@ -60,5 +60,8 @@ public class MyPlaylistService {
         SearchArtistsRequest searchArtistsRequest = securityContext.getSpotifyApi().searchArtists(artist).limit(1).build();
         final Paging<Artist> artistPaging = searchArtistsRequest.execute();
         return Arrays.stream(artistPaging.getItems()).map(Artist::getId).findAny().orElse("");
+    }
+    private void setPlaylistName(String artist1, String artist2, String artist3){
+        playlistName = String.format("Top 5 from %s, %s and %s", artist1, artist2, artist3);
     }
 }

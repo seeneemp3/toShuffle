@@ -454,10 +454,9 @@
     color: white;
     font-weight: 200;
     line-height: 1.6;
-    text-align: none;
+    text-align: center;
   }
   .home-button{
-    margin-top: auto; 
     background-color: rgba(38, 215, 105, 1); 
     border: none;
     color: white;
@@ -466,10 +465,13 @@
     text-decoration: none;
     display: inline-block;
     color: #000;
+
+    
     font-size: 26px;
     font-style: bold;
     font-weight: 600;
     line-height: normal;
+
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 25px; 

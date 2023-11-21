@@ -23,24 +23,48 @@ public class MainController {
 
     @GetMapping("/home")
     public String home(){
+        log.info("Accessing home page");
         return "main";
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<String>> searchArtists(@RequestParam String query) {
-        return searchArtistService.searchResults(query);
+        log.info("Performing search with query: {}", query);
+        try {
+            ResponseEntity<List<String>> response = searchArtistService.searchResults(query);
+            log.info("Search completed");
+            return response;
+        } catch (Exception e) {
+            log.error("Error during search: {}", e.getMessage(), e);
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @GetMapping("/showPlaylist")
     public ResponseEntity<List<Track>> showPlaylist(@RequestParam String searchInput1, @RequestParam String searchInput2,
-                                                    @RequestParam String searchInput3) throws IOException, ParseException, SpotifyWebApiException {
-        return ResponseEntity.ok(playlistService.showMyPlaylist(searchInput1, searchInput2, searchInput3));
+                                                    @RequestParam String searchInput3) {
+        log.info("Showing playlist for inputs: {}, {}, {}", searchInput1, searchInput2, searchInput3);
+        try {
+            ResponseEntity<List<Track>> response = ResponseEntity.ok(playlistService.showMyPlaylist(searchInput1, searchInput2, searchInput3));
+            log.info("Playlist displayed");
+            return response;
+        } catch (IOException | ParseException | SpotifyWebApiException e) {
+            log.error("Error displaying playlist: {}", e.getMessage(), e);
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @GetMapping("/createPlaylist")
-    public ResponseEntity<String> createPlaylist() throws IOException, ParseException, SpotifyWebApiException {
-        log.error("playlist created");
-        return ResponseEntity.ok(playlistService.createMyPlaylist());
+    public ResponseEntity<String> createPlaylist() {
+        log.info("Creating playlist");
+        try {
+            String response = playlistService.createMyPlaylist();
+            log.info("Playlist created");
+            return ResponseEntity.ok(response);
+        } catch (IOException | ParseException | SpotifyWebApiException e) {
+            log.error("Error creating playlist: {}", e.getMessage(), e);
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
 
