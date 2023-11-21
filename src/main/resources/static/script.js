@@ -3,10 +3,31 @@ function toSearch() {
     document.getElementById("searchPage").style.display = "block";
   }
 
-  function toFinish() {
-    document.getElementById("showPlaylistPage").style.display = "none";
-    document.getElementById("finishPage").style.display = "block";
-  }
+toFinish();
+function toFinish() {
+    document.getElementById('button3').addEventListener('click', function() {
+        fetch('/createPlaylist', {
+            method: 'GET'
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            }
+            throw new Error('Request error');
+        })
+        .then(data => {
+            console.log('Server response:', data);
+            document.getElementById("playlistDescription").textContent =
+                "Your playlist is ready. It can be found by the name \"" + data + "\"";
+            document.getElementById("showPlaylistPage").style.display = "none";
+            document.getElementById("finishPage").style.display = "block";
+        })
+        .catch(error => {
+            window.location.href = '/error';
+        });
+    });
+}
+
 
   function toWelcome() {
     location.reload();
@@ -162,14 +183,14 @@ document.addEventListener('DOMContentLoaded', function() {
               if(response.ok) {
                   return response.text();
               }
-              throw new Error('Сетевая ошибка при запросе');
+              throw new Error('Request error');
           }).then(data => {
 
               console.log(data);
 
               parseAndDisplayResults(data);
           }).catch(error => {
-              console.error('Ошибка:', error);
+              window.location.href = '/error';
           });
       });
 
@@ -192,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (container) {
         container.innerHTML = resultsHtml; 
       } else {
-        console.error('The container with class "cont3" was not found.');
+        window.location.href = '/error';
       }
     }
 });

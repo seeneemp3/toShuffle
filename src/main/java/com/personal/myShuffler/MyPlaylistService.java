@@ -22,10 +22,13 @@ import java.util.List;
 public class MyPlaylistService {
     private final SpotifySecurityContext securityContext;
     private final MyUserService userService;
+    private final PlaylistRepository repository;
+    public String playlistName;
 
     public List<Track> showMyPlaylist(String artist1, String artist2, String artist3) throws IOException, ParseException, SpotifyWebApiException {
         SpotifyApi api = securityContext.getSpotifyApi();
-        String playlistName = String.format("Top 5 from %s, %s and %s", artist1, artist2, artist3);
+
+        playlistName = String.format("Top 5 from %s, %s and %s", artist1, artist2, artist3);
 
         List <String> artistIds = List.of(search(artist1), search(artist2), search(artist3));
 
@@ -35,28 +38,23 @@ public class MyPlaylistService {
             final Track[] tracks = api.getArtistsTopTracks(artistId, CountryCode.US).build().execute();
             Arrays.stream(tracks).limit(5).forEach(tracksList::add);
         }
+        repository.set(tracksList);
         return tracksList;
     }
-    public Playlist createMyPlaylist(String artist1, String artist2, String artist3) throws IOException, ParseException, SpotifyWebApiException {
+    public String createMyPlaylist() throws IOException, ParseException, SpotifyWebApiException {
         SpotifyApi api = securityContext.getSpotifyApi();
         String userId = userService.getUser().getUserId();
-        String playlistName = String.format("Top 5 from %s, %s and %s", artist1, artist2, artist3);
 
         Playlist playlist = api.createPlaylist(userId, playlistName).build().execute();
 
-        List <String> artistIds = List.of(search(artist1), search(artist3), search(artist3));
-
         List<String> trackUrls = new ArrayList<>();
 
-        for(String artistId : artistIds){
-            final Track[] tracks = api.getArtistsTopTracks(artistId, CountryCode.US).build().execute();
-            Arrays.stream(tracks).map(Track::getUri).limit(5).forEach(trackUrls::add);
-        }
+        repository.get().stream().map(Track::getUri).forEach(trackUrls::add);
 
         String [] trackUrlsArr = trackUrls.toArray(new String[15]);
         api.addItemsToPlaylist(playlist.getId(), trackUrlsArr).build().execute();
 
-       return playlist;
+       return playlistName;
     }
     private String search(String artist) throws IOException, ParseException, SpotifyWebApiException {
         SearchArtistsRequest searchArtistsRequest = securityContext.getSpotifyApi().searchArtists(artist).limit(1).build();
