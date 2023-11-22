@@ -1,4 +1,4 @@
-package com.personal.myShuffler;
+package com.personal.myShuffler.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

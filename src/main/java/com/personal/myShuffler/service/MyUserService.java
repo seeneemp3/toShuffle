@@ -1,5 +1,7 @@
-package com.personal.myShuffler;
+package com.personal.myShuffler.service;
 
+import com.personal.myShuffler.model.MyUser;
+import com.personal.myShuffler.security.SpotifySecurityContext;
 import lombok.RequiredArgsConstructor;
 import org.apache.hc.core5.http.ParseException;
 import org.springframework.stereotype.Service;

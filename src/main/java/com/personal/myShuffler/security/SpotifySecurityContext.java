@@ -1,4 +1,4 @@
-package com.personal.myShuffler;
+package com.personal.myShuffler.security;
 
 import se.michaelthelin.spotify.SpotifyApi;
 

@@ -1,5 +1,6 @@
-package com.personal.myShuffler;
+package com.personal.myShuffler.service;
 
+import com.personal.myShuffler.security.SpotifySecurityContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

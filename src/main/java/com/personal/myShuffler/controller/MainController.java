@@ -1,5 +1,7 @@
-package com.personal.myShuffler;
+package com.personal.myShuffler.controller;
 
+import com.personal.myShuffler.service.MyPlaylistService;
+import com.personal.myShuffler.service.SearchArtistService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.ParseException;

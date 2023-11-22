@@ -1,4 +1,4 @@
-package com.personal.myShuffler;
+package com.personal.myShuffler.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;

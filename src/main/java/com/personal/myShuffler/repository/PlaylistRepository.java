@@ -1,4 +1,4 @@
-package com.personal.myShuffler;
+package com.personal.myShuffler.repository;
 
 import se.michaelthelin.spotify.model_objects.specification.Track;
 
