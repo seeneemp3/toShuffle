@@ -22,6 +22,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 @WebMvcTest(controllers = MainController.class)
 @ContextConfiguration(classes = {MyShufflerApplication.class, SecurityConfig.class})
 public class ControllerTest {
@@ -40,6 +41,7 @@ public class ControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("main"));
     }
+
     @Test
     public void testUnauthorizedAndRedirect() throws Exception {
         mockMvc.perform(get("/home"))

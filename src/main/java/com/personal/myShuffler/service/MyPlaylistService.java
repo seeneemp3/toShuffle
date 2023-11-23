@@ -58,7 +58,7 @@ public class MyPlaylistService {
 
        return playlistName;
     }
-    private String search(String artist) throws IOException, ParseException, SpotifyWebApiException {
+    public String search(String artist) throws IOException, ParseException, SpotifyWebApiException {
         SearchArtistsRequest searchArtistsRequest = securityContext.getSpotifyApi().searchArtists(artist).limit(1).build();
         final Paging<Artist> artistPaging = searchArtistsRequest.execute();
         return Arrays.stream(artistPaging.getItems()).map(Artist::getId).findAny().orElse("");
