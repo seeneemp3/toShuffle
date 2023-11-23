@@ -34,26 +34,6 @@ function toFinish() {
   }
 
   $(document).ready(function() {
-    
-   /* //MOCK
-    function search(input, resultsContainer) {
-        const query = $(input).val();
-      
-        const mockData = ['Artist 1', 'Artist 2', 'Artist 3'];
-      
-        let resultsHtml = '<ul>';
-      
-        mockData.forEach(artist => {
-          resultsHtml += '<li class="search-result-item">' + artist + '</li>';
-        });
-      
-        resultsHtml += '</ul>';
-      
-        $(resultsContainer).html(resultsHtml).show();
-      }
-    */ //MOCK
-    
-      
 
       function search(input, resultsContainer) {
           const query = $(input).val();
@@ -104,86 +84,6 @@ function toFinish() {
       setupInput('#search-input2', '#search-results2');
       setupInput('#search-input3', '#search-results3');
   });
-
- 
-
-/* //MOCK
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('sendInputs');
-    var submitButton = document.getElementById('submit-button');
-
-
-
-    submitButton.addEventListener('click', function(event) {
-      var allInputsFilled = true;
-      $('input[type="text"]').each(function() {
-          if ($(this).val() === '') {
-              allInputsFilled = false;
-              return false; 
-          }
-      });
-  
-      if (!allInputsFilled) {
-        alert('Please fill in all the fields before continuing.'); 
-        event.preventDefault(); 
-        return; 
-    }
-
-        document.getElementById("searchPage").style.display = "none";
-        document.getElementById("showPlaylistPage").style.display = "flex";
-        event.preventDefault();
-
-        var data = getMockTracks();
-        parseAndDisplayResults(data);
-    });
-
-    function getMockTracks() {
-        return JSON.stringify([
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 2" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "АртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртистАртист 2" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 1", artists: [{ name: "Артист 1" }] },
-            { name: "ТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрекТрек 2", artists: [{ name: "Артист 2" }] }
-
-        ]);
-    }
-
-    function parseAndDisplayResults(data) {
-      var tracks = JSON.parse(data);
-      var resultsHtml = '<div class="scrollable-list">';
-    
-      tracks.forEach(function(track) {
-        resultsHtml += '<div class="track">' +
-                       '<div class="track-info">' +
-                       '<p class="track-name">' + track.name + '</p>' +
-                       '<p class="artist-name">' + track.artists.map(artist => artist.name).join(', ') + '</p>' +
-                       '</div>' +
-                       '</div>';
-      });
-      resultsHtml += '</div>';
-    
-      var container = document.querySelector('.cont3');
-      
-      if (container) {
-        container.innerHTML = resultsHtml; 
-      } else {
-        console.error('The container with class "cont3" was not found.');
-      }
-    }  
-});
-*///MOCK
-  
-
 
   document.addEventListener('DOMContentLoaded', function() {
       var form = document.getElementById('sendInputs');
