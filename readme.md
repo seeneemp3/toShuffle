@@ -1,7 +1,7 @@
 <h1 align="center">🔀 toShuffle() 🔀</h1>
 <p align="center">
   <br>
-  <i>Shuffle your favorite artist</i>
+  <i>Shuffle your favorite artists</i>
   <br>
 </p>
 
