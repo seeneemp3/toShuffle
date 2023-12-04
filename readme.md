@@ -10,6 +10,12 @@
   <br>
 </p>
 
+ 
+<p align="center">
+  <a <strong>(Developer mode only. Contact me to get access)</strong></a>
+  <br>
+</p>
+
 ___
 
 ## 🌟 Overview
